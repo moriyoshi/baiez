@@ -1,0 +1,69 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: baiez
+    steps:
+      - name: Check out baiez
+        uses: actions/checkout@v4
+        with:
+          path: baiez
+      - name: Check out yesnodb dependency
+        uses: actions/checkout@v4
+        with:
+          repository: moriyoshi/yesnodb
+          ref: 95d130037a62059bd7e4f849dbd43a43c0a0358c
+          path: yesno
+      - name: Set up Rust
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal --component clippy,rustfmt
+          rustup default 1.95.0
+          cargo --version
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python lint tool
+        run: python -m pip install ruff==0.16.10 numpy==2.5.3
+      - name: Fetch Rust dependencies
+        run: cargo fetch --locked
+      - name: Run local gate
+        run: ./scripts/gate.sh
+
+  e2e:
+    name: real-process E2E scenarios
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: baiez
+    steps:
+      - name: Check out baiez
+        uses: actions/checkout@v4
+        with:
+          path: baiez
+      - name: Check out yesnodb dependency
+        uses: actions/checkout@v4
+        with:
+          repository: moriyoshi/yesnodb
+          ref: 95d130037a62059bd7e4f849dbd43a43c0a0358c
+          path: yesno
+      - name: Set up Rust
+        run: |
+          rustup toolchain install 1.95.0 --profile minimal
+          rustup default 1.95.0
+      - name: Fetch Rust dependencies
+        run: cargo fetch --locked
+      - name: Fetch yesno server dependencies
+        run: cargo fetch --locked --manifest-path ../yesno/Cargo.toml
+      - name: Run real-process scenarios
+        run: ./scripts/gate-e2e.sh

@@ -1,0 +1,15 @@
+[package]
+name = "baiez-e2e"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.95"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+baiez = { path = ".." }
+monty = "0.0.21"
+monty-types = "0.0.21"
+serde_json = "1"
+tempfile = "3"
+yesno-core = { version = "0.1.0", path = "../../yesno/yesno-core" }

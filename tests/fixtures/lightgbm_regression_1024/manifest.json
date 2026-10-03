@@ -1,0 +1,15 @@
+{
+  "source": "scripts/measure_lightgbm.py",
+  "source_report": "reports/gbm_workflow.json",
+  "lightgbm_version": "4.7.0",
+  "selection": "first 1024 rows of the 100000-row regression fixture",
+  "rows": 1024,
+  "features": 8,
+  "trees": 16,
+  "sha256": {
+    "model.json": "a5566632f07e7638191d57bcf5d81d19f35a86b5d44317047091745c78374c91",
+    "model.txt": "f8ab33bc795e444150838186948473d66baa92cbc8f128295f4910a589814487",
+    "rows.f64": "bc1f33f502b4ac63a44d47bdd309e7f036642842dbe9e90597ed0b8dacdcc7fc",
+    "native_scores.f64": "65a3e6fe82477a29eb1c037641f05eb2905f4ffed2c405bdc725a84beab7ed3c"
+  }
+}

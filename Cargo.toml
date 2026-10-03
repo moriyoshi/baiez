@@ -1,0 +1,81 @@
+[workspace]
+members = [".", "baiez-e2e"]
+
+[package]
+name = "baiez"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+license = "Apache-2.0"
+description = "LightGBM-compatible batch inference over yesnodb packed views"
+authors = ["Moriyoshi Koizumi"]
+readme = "README.md"
+documentation = "https://docs.rs/baiez"
+repository = "https://github.com/moriyoshi/baiez"
+keywords = ["lightgbm", "inference", "yesnodb", "gradient-boosting"]
+categories = ["algorithms", "science"]
+exclude = [
+    "/.agents/**",
+    "/.agents-workspace/**",
+    "/.github/**",
+    "/AGENTS.md",
+    "/CLAUDE.md",
+    "/reports/**",
+    "/dist/**",
+    "/.venv/**",
+    "**/__pycache__/**",
+    "**/*.pyc",
+    "**/*.pyo",
+    "**/*.egg-info/**",
+    "**/.pytest_cache/**",
+    "**/.ruff_cache/**",
+]
+
+[features]
+python = ["dep:pyo3", "flight"]
+default = ["flight"]
+flight = ["dep:arrow-array", "dep:futures", "dep:yesno-flight", "dep:tokio"]
+flight-benchmark = [
+	"flight",
+	"dep:arrow-array",
+    "dep:arrow-flight",
+    "dep:arrow-schema",
+    "dep:futures",
+    "dep:tokio",
+    "dep:tokio-stream",
+    "dep:tonic",
+]
+
+[dependencies]
+arrow-array = { version = "59.3.0", optional = true }
+arrow-flight = { version = "59.3.0", optional = true }
+arrow-schema = { version = "59.3.0", optional = true }
+futures = { version = "0.3", optional = true }
+libloading = "0.8"
+libc = "0.2"
+memmap2 = "0.9"
+pyo3 = { version = "0.29.2", features = ["extension-module"], optional = true }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "net", "rt-multi-thread"], optional = true }
+tokio-stream = { version = "0.1", features = ["net"], optional = true }
+tonic = { version = "0.14", features = ["transport"], optional = true }
+yesno-core = { version = "0.1.0", path = "../yesno/yesno-core" }
+yesno-plugin = { version = "0.1.0", path = "../yesno/yesno-plugin" }
+yesno-flight = { version = "0.1.0", path = "../yesno/yesno-flight", default-features = false, optional = true }
+
+[lib]
+crate-type = ["rlib", "cdylib"]
+
+[dev-dependencies]
+arrow-flight = "59.3.0"
+tempfile = "3"
+tonic = { version = "0.14", features = ["transport"] }
+yesno-flight = { version = "0.1.0", path = "../yesno/yesno-flight", features = ["server"] }
+tokio = { version = "1", features = ["macros", "net", "rt-multi-thread", "sync"] }
+tokio-stream = { version = "0.1", features = ["net"] }
+
+[[example]]
+name = "measure_flight"
+required-features = ["flight-benchmark"]

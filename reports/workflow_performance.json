@@ -1,0 +1,151 @@
+{
+  "fixture": "/tmp/baiez-lightgbm-measure",
+  "model_sha256": "a5566632f07e7638191d57bcf5d81d19f35a86b5d44317047091745c78374c91",
+  "cli_sha256": "2d2f8a72a86a64acdeb60d46c1e8cae9614a64752d6fc9aeedeed539179bca7c",
+  "extension_sha256": "b617ab2d1e370ed9a3b61ae9f4d8434ae89c5cd64ff974930b830129df39f755",
+  "machine": "aarch64",
+  "cpu_affinity": [
+    19
+  ],
+  "rows": 100000,
+  "trees": 16,
+  "index_build_ms": 289.492498,
+  "python_prepare_ms": 33.393935,
+  "database_allocated_bytes": 1900544,
+  "measurements": [
+    {
+      "cohort": "contiguous_1",
+      "rows": 1,
+      "extension": {
+        "median_us": 0.443632,
+        "min_us": 0.442432,
+        "max_us": 0.448496
+      },
+      "predict_ids": {
+        "median_us": 1.325441,
+        "min_us": 1.3179210000000001,
+        "max_us": 1.328881
+      },
+      "predict_indexed_rows": {
+        "median_us": 1.487376,
+        "min_us": 1.4791210000000001,
+        "max_us": 1.492161
+      },
+      "cli_process": {
+        "median_us": 37878.209,
+        "min_us": 34211.168,
+        "max_us": 40044.322
+      }
+    },
+    {
+      "cohort": "contiguous_64",
+      "rows": 64,
+      "extension": {
+        "median_us": 5.692162000000001,
+        "min_us": 5.677537999999999,
+        "max_us": 5.71514
+      },
+      "predict_ids": {
+        "median_us": 6.637924,
+        "min_us": 6.629826,
+        "max_us": 6.6525479999999995
+      },
+      "predict_indexed_rows": {
+        "median_us": 6.826786,
+        "min_us": 6.81386,
+        "max_us": 6.831492
+      }
+    },
+    {
+      "cohort": "contiguous_1024",
+      "rows": 1024,
+      "extension": {
+        "median_us": 86.38404,
+        "min_us": 86.05956,
+        "max_us": 87.31348
+      },
+      "predict_ids": {
+        "median_us": 87.61492,
+        "min_us": 87.31939999999999,
+        "max_us": 87.65908
+      },
+      "predict_indexed_rows": {
+        "median_us": 87.84660000000001,
+        "min_us": 87.79028,
+        "max_us": 88.28931
+      }
+    },
+    {
+      "cohort": "contiguous_8192",
+      "rows": 8192,
+      "extension": {
+        "median_us": 1078.8589,
+        "min_us": 1067.8861000000002,
+        "max_us": 1102.3789
+      },
+      "predict_ids": {
+        "median_us": 1067.68365,
+        "min_us": 1055.8948500000001,
+        "max_us": 1071.50205
+      },
+      "predict_indexed_rows": {
+        "median_us": 1065.6124499999999,
+        "min_us": 1062.8804499999999,
+        "max_us": 1067.2845
+      },
+      "cli_process": {
+        "median_us": 39794.914,
+        "min_us": 35344.48,
+        "max_us": 41249.219
+      }
+    },
+    {
+      "cohort": "scattered_shuffled_8192",
+      "rows": 8192,
+      "extension": {
+        "median_us": 1059.5005,
+        "min_us": 1056.30845,
+        "max_us": 1072.6109
+      },
+      "predict_ids": {
+        "median_us": 1062.5868500000001,
+        "min_us": 1057.3348500000002,
+        "max_us": 1065.7565
+      },
+      "predict_indexed_rows": {
+        "median_us": 1058.6397,
+        "min_us": 1052.4573,
+        "max_us": 1063.9421
+      },
+      "cli_process": {
+        "median_us": 36255.28,
+        "min_us": 35401.2,
+        "max_us": 39794.594
+      }
+    },
+    {
+      "cohort": "contiguous_100000",
+      "rows": 100000,
+      "extension": {
+        "median_us": 5361.6856,
+        "min_us": 5286.0408,
+        "max_us": 5450.0248
+      },
+      "predict_ids": {
+        "median_us": 5320.245599999999,
+        "min_us": 5301.468,
+        "max_us": 5380.9496
+      },
+      "predict_indexed_rows": {
+        "median_us": 5337.3496,
+        "min_us": 5298.06,
+        "max_us": 5372.3544
+      },
+      "cli_process": {
+        "median_us": 94505.034,
+        "min_us": 91051.225,
+        "max_us": 103451.998
+      }
+    }
+  ]
+}

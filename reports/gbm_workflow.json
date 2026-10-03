@@ -1,0 +1,59 @@
+{
+  "generated_utc": "2026-10-03T05:59:09.306154+00:00",
+  "fixture": "/tmp/baiez-lightgbm-measure",
+  "sha256": {
+    "model_json": "a5566632f07e7638191d57bcf5d81d19f35a86b5d44317047091745c78374c91",
+    "model_txt": "f8ab33bc795e444150838186948473d66baa92cbc8f128295f4910a589814487",
+    "rows_f64": "741bd2e0221dac4422d90529fd903c8ee0da93ce0f2986442569d79cbcf9235b",
+    "native_scores_f64": "cce5c9d20076d1e0c7ee80ac7ee92e051bc78ca09995e37a6a13edf63f372f06",
+    "cli": "d1786121f8e4e625ef0491a6546088ab4a049d0a5ec0da019b5553f7e06fff24",
+    "python_extension": "631c41e729e0db94d6b0ebea08316e3f7429f25841e2702d8d3e27f41d6494ee"
+  },
+  "rows": 100000,
+  "features": 8,
+  "trees": 16,
+  "missing_values": 8152,
+  "zero_values": 8985,
+  "json_dump_exact": true,
+  "separate_load_index": true,
+  "leaf_window_cli_python_equal": true,
+  "missing_row_rejected": true,
+  "cohorts": [
+    {
+      "cohort": "contiguous_1",
+      "rows": 1,
+      "cli_max_abs_error": 0.0,
+      "python_max_abs_error": 0.0
+    },
+    {
+      "cohort": "contiguous_64",
+      "rows": 64,
+      "cli_max_abs_error": 4.440892098500626e-16,
+      "python_max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "cohort": "contiguous_1024",
+      "rows": 1024,
+      "cli_max_abs_error": 4.440892098500626e-16,
+      "python_max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "cohort": "contiguous_8192",
+      "rows": 8192,
+      "cli_max_abs_error": 4.440892098500626e-16,
+      "python_max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "cohort": "scattered_shuffled_8192",
+      "rows": 8192,
+      "cli_max_abs_error": 4.440892098500626e-16,
+      "python_max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "cohort": "contiguous_100000",
+      "rows": 100000,
+      "cli_max_abs_error": 4.440892098500626e-16,
+      "python_max_abs_error": 4.440892098500626e-16
+    }
+  ]
+}

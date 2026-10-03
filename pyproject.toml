@@ -1,0 +1,33 @@
+[build-system]
+requires = ["maturin>=1.9.3,<2"]
+build-backend = "maturin"
+
+[project]
+name = "baiez"
+version = "0.1.0"
+description = "LightGBM-compatible inference over yesnodb packed views"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = [
+  "LICENSE",
+  "NOTICE",
+  "third_party/yesno/LICENSE-APACHE",
+  "third_party/yesno/LICENSE-MIT",
+  "third_party/yesno/NOTICE",
+]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.24"]
+keywords = ["lightgbm", "inference", "yesnodb", "gradient boosting"]
+authors = [{ name = "Moriyoshi Koizumi" }]
+
+[project.urls]
+Repository = "https://github.com/moriyoshi/baiez"
+
+[project.optional-dependencies]
+lightgbm = ["lightgbm>=4"]
+
+[tool.maturin]
+python-source = "python"
+module-name = "baiez._baiez"
+features = ["python"]
+exclude = ["**/__pycache__/**", "**/*.pyc", ".agents/**", ".agents-workspace/**", ".github/**", "AGENTS.md", "CLAUDE.md"]

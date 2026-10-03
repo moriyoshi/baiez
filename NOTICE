@@ -1,0 +1,9 @@
+baiez
+Copyright 2026 Moriyoshi Koizumi
+
+This product is licensed under the Apache License, Version 2.0.
+
+This product includes yesno-core and yesno-plugin, developed by Moriyoshi Koizumi and licensed
+under either Apache-2.0 or MIT. The original yesnodb notice and license texts
+are preserved in third_party/yesno. This distribution uses the Apache-2.0
+option for the bundled yesno-core and yesno-plugin source.

@@ -1,0 +1,1 @@
+{"max_feature_idx":0,"num_class":1,"num_tree_per_iteration":1,"objective":"regression","tree_info":[{"tree_index":0,"tree_structure":{"split_index":0,"split_feature":0,"decision_type":"<=","threshold":1.5,"missing_type":"None","default_left":true,"left_child":{"leaf_index":0,"leaf_value":2.0},"right_child":{"leaf_index":1,"leaf_value":4.0}}}]}
